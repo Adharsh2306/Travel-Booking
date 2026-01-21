@@ -1,0 +1,158 @@
+.detail-container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s;
+}
+
+.back-btn:hover {
+  color: var(--primary);
+}
+
+.detail-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.image-section {
+  position: relative;
+  height: 300px;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(10,10,18, 0.9), transparent);
+  padding: 2rem;
+}
+
+.overlay h1 {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 2.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.location {
+  color: var(--primary);
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.content-section {
+  padding: 2rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-item label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-item span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.price {
+  color: var(--secondary);
+}
+
+.description-section {
+  margin-bottom: 2rem;
+}
+
+.description-section h3, .itinerary-section h3 {
+  color: var(--primary);
+  margin-top: 0;
+}
+
+.description-section p {
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.itinerary-list {
+  list-style: none;
+  padding: 0;
+}
+
+.itinerary-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+
+.day-badge {
+  background-color: var(--primary);
+  color: var(--bg-dark);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-right: 1rem;
+}
+
+.action-section {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.book-btn {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(188, 19, 254, 0.4);
+}

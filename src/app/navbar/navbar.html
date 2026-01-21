@@ -1,6 +1,8 @@
-<mat-toolbar color="primary">
-  <span>Travel Explorer</span>
-  <span class="spacer"></span>
-  <button mat-button routerLink="/destinations" routerLinkActive="active-link">Destinations</button>
-  <button mat-button routerLink="/my-bookings" routerLinkActive="active-link">My Bookings</button>
-</mat-toolbar>
+<nav class="navbar">
+  <div class="brand">Travel Explorer</div>
+  <div class="spacer"></div>
+  <div class="nav-links">
+    <button class="nav-btn" (click)="navigateDestinations.emit()">Destinations</button>
+    <button class="nav-btn" (click)="navigateDashboard.emit()">My Bookings</button>
+  </div>
+</nav>

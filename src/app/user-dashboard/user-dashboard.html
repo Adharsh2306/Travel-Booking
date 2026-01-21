@@ -1,1 +1,22 @@
-<p>user-dashboard works!</p>
+<div class="dashboard-container">
+  <h1 class="dashboard-title">My Bookings</h1>
+
+  <div class="bookings-list" *ngIf="bookings.length > 0; else noBookings">
+    <div *ngFor="let booking of bookings" class="booking-card">
+      <div class="booking-info">
+        <h3>{{ booking.packageName || 'Loading...' }}</h3>
+        <p class="date">Travel Date: {{ booking.date | date }}</p>
+        <p class="details">{{ booking.travelers }} Travelers • Total: ${{ (booking.packagePrice || 0) * booking.travelers }}</p>
+      </div>
+      <div class="booking-status">
+        <span class="status-badge" [class]="booking.status">{{ booking.status }}</span>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noBookings>
+    <div class="empty-state">
+      <p>You haven't booked any trips yet.</p>
+    </div>
+  </ng-template>
+</div>

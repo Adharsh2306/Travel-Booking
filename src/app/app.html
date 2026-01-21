@@ -1,4 +1,24 @@
-<app-navbar></app-navbar>
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<app-navbar
+  (navigateDestinations)="showDestinations()"
+  (navigateDashboard)="showDashboard()"
+></app-navbar>
+
+<main class="main-content">
+  @if (currentView() === 'destinations') {
+    <app-destination-list (packageSelected)="onPackageSelected($event)"></app-destination-list>
+  } @else if (currentView() === 'package-detail') {
+    <app-package-detail
+      [packageId]="selectedPackageId()!"
+      (bookPackage)="onBookPackage($event)"
+      (goBack)="showDestinations()"
+    ></app-package-detail>
+  } @else if (currentView() === 'booking') {
+    <app-booking-form
+      [packageId]="selectedPackageId()!"
+      (bookingComplete)="onBookingComplete()"
+      (cancel)="onCancelBooking()"
+    ></app-booking-form>
+  } @else if (currentView() === 'dashboard') {
+    <app-user-dashboard></app-user-dashboard>
+  }
+</main>

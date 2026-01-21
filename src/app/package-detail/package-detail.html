@@ -1,1 +1,47 @@
-<p>package-detail works!</p>
+<div class="detail-container" *ngIf="package && destination">
+  <button class="back-btn" (click)="onBack()">← Back to Destinations</button>
+  
+  <div class="detail-card">
+    <div class="image-section">
+      <img [src]="destination.image" [alt]="destination.name" class="hero-image">
+      <div class="overlay">
+        <h1>{{ package.name }}</h1>
+        <div class="location">
+          <span class="icon">📍</span> {{ destination.name }}
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <div class="info-grid">
+        <div class="info-item">
+          <label>Duration</label>
+          <span>{{ package.duration }}</span>
+        </div>
+        <div class="info-item">
+          <label>Price</label>
+          <span class="price">${{ package.price }}</span>
+        </div>
+      </div>
+
+      <div class="description-section">
+        <h3>About the Destination</h3>
+        <p>{{ destination.description }}</p>
+      </div>
+
+      <div class="itinerary-section">
+        <h3>Itinerary Highlights</h3>
+        <ul class="itinerary-list">
+          <li *ngFor="let item of package.itinerary; let i = index">
+            <span class="day-badge">Day {{ i + 1 }}</span>
+            <span class="day-desc">{{ item }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="action-section">
+        <button class="book-btn" (click)="onBook()">Book Now</button>
+      </div>
+    </div>
+  </div>
+</div>

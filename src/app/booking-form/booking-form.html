@@ -1,1 +1,50 @@
-<p>booking-form works!</p>
+<div class="booking-container" *ngIf="package">
+  <div class="booking-card">
+    <div class="booking-header">
+      <h2>Book Your Trip</h2>
+      <p>You are booking: <span class="highlight">{{ package.name }}</span></p>
+    </div>
+
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" class="booking-form">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" formControlName="name" placeholder="John Doe">
+        <div class="error" *ngIf="bookingForm.get('name')?.invalid && bookingForm.get('name')?.touched">
+          Name is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" formControlName="email" placeholder="john@example.com">
+        <div class="error" *ngIf="bookingForm.get('email')?.invalid && bookingForm.get('email')?.touched">
+          Valid email is required
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="travelers">Travelers</label>
+          <input type="number" id="travelers" formControlName="travelers" min="1">
+        </div>
+
+        <div class="form-group">
+          <label for="date">Travel Date</label>
+          <input type="date" id="date" formControlName="date">
+          <div class="error" *ngIf="bookingForm.get('date')?.invalid && bookingForm.get('date')?.touched">
+            Date is required
+          </div>
+        </div>
+      </div>
+
+      <div class="summary">
+        <p>Total Price: <span class="price">${{ package.price * (bookingForm.get('travelers')?.value || 1) }}</span></p>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="cancel-btn" (click)="onCancel()">Cancel</button>
+        <button type="submit" class="submit-btn" [disabled]="bookingForm.invalid">Confirm Booking</button>
+      </div>
+    </form>
+  </div>
+</div>

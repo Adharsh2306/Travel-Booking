@@ -1,36 +1,74 @@
 .destination-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 20px;
-  padding: 20px 0;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .destination-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 243, 255, 0.2);
+  border-color: var(--primary);
+}
+
+.card-image-wrapper {
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-mat-card-content {
-  flex-grow: 1;
-  padding-top: 16px;
+.destination-card:hover .card-image {
+  transform: scale(1.1);
 }
 
-.package-list {
-  margin-top: 15px;
-  border-top: 1px solid #e0e0e0;
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-title {
+  color: var(--primary);
+  margin-top: 0;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.packages-section h3 {
+  color: var(--secondary);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(188, 19, 254, 0.3);
+  padding-bottom: 0.5rem;
 }
 
 .package-item {
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #f0f0f0;
-  
-  &:last-child {
-    border-bottom: none;
-  }
 }
 
 .package-info {
@@ -39,9 +77,33 @@ mat-card-content {
 }
 
 .package-name {
-  font-weight: 500;
+  font-weight: bold;
+  color: var(--text-main);
+  margin-bottom: 0.3rem;
 }
-.package-duration, .package-price {
-  font-size: 0.9em;
-  color: #666;
+
+.package-meta {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.package-price {
+  color: var(--primary);
+  margin-left: 0.5rem;
+  font-weight: bold;
+}
+
+.details-btn {
+  background-color: transparent;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.details-btn:hover {
+  background-color: var(--secondary);
+  color: #fff;
 }

@@ -1,14 +1,12 @@
-import { Component } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
-  imports: [MatToolbarModule, MatButtonModule, RouterLink, RouterLinkActive],
+  imports: [],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
 export class Navbar {
-
+  @Output() navigateDestinations = new EventEmitter<void>();
+  @Output() navigateDashboard = new EventEmitter<void>();
 }

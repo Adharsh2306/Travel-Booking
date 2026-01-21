@@ -1,25 +1,27 @@
 <div class="destination-grid">
-  <mat-card *ngFor="let dest of destinations" class="destination-card">
-    <img mat-card-image [src]="dest.image" [alt]="dest.name">
-    <mat-card-header>
-      <mat-card-title>{{ dest.name }}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>{{ dest.description }}</p>
+  <div *ngFor="let dest of destinations" class="destination-card">
+    <div class="card-image-wrapper">
+      <img [src]="dest.image" [alt]="dest.name" class="card-image">
+    </div>
+    <div class="card-content">
+      <h2 class="card-title">{{ dest.name }}</h2>
+      <p class="card-description">{{ dest.description }}</p>
       
-      <div *ngIf="packages[dest.id] && packages[dest.id].length > 0">
+      <div *ngIf="packages[dest.id] && packages[dest.id].length > 0" class="packages-section">
         <h3>Available Packages:</h3>
         <div class="package-list">
           <div *ngFor="let pkg of packages[dest.id]" class="package-item">
             <div class="package-info">
               <span class="package-name">{{ pkg.name }}</span>
-              <span class="package-duration">{{ pkg.duration }}</span>
-              <span class="package-price">${{ pkg.price }}</span>
+              <div class="package-meta">
+                <span class="package-duration">{{ pkg.duration }}</span>
+                <span class="package-price">${{ pkg.price }}</span>
+              </div>
             </div>
-            <a mat-raised-button color="primary" [routerLink]="['/package', pkg.id]">Details</a>
+            <button class="details-btn" (click)="selectPackage(pkg.id)">View Details</button>
           </div>
         </div>
       </div>
-    </mat-card-content>
-  </mat-card>
+    </div>
+  </div>
 </div>
